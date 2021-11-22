@@ -1,0 +1,7 @@
+{
+  "env": {
+    "token": "Bearer ",
+    "invalid_token": "Bearer ",
+    "empty_token": ""
+  }
+}
