@@ -47,9 +47,9 @@ npm install --sav-dev cypress`
 
 ## In the test 4.2 Valid phone - Canada - 10 digits.
 
-- 1. 16 digits Canadian phone is not accepted
-- 2. Incorrect error message for phone number length
-     ![Bug](./cypress/screenshot/bug.png)
+1. 16 digits Canadian phone is not accepted
+2. Incorrect error message for phone number length
+   ![Bug](./cypress/screenshot/bug.png)
 
 The documentation states Required, 16 digits max. But the pass test requires a maximum of 10, after entering one more number I get the error "Invalid parameter (s)". I am thinking this is a bug or typo in documentation.
 
