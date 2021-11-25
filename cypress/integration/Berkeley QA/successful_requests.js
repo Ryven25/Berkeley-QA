@@ -10,6 +10,7 @@ describe("Card Holder POST API tests", () => {
     "Content-Type": "application/json",
     Accept: "application/json",
   };
+
   const body_mandatory = {
     program_id: 31,
     external_tag: "abc123",

@@ -23,3 +23,53 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("validateSuccess", (body, headers) => {
+  cy.request({
+    method: "POST",
+    url: "/",
+    headers: headers,
+    body: body,
+    failOnStatusCode: false,
+  }).then((response) => {
+    expect(response.status).equal(201);
+    expect(response.body.data.value_load_result.code).to.equal("success");
+  });
+});
+
+Cypress.Commands.add("validateFailure", (body_full, headers, error) => {
+  cy.request({
+    method: "POST",
+    url: "/",
+    headers: headers,
+    body: body_full,
+    failOnStatusCode: false,
+  }).then((response) => {
+    expect(response.status).equal(400);
+    expect(response.body.error.field_errors[0].message).to.equal(error);
+  });
+});
+
+Cypress.Commands.add("validateErrorCode", (body_full, headers) => {
+  cy.request({
+    method: "POST",
+    url: "/",
+    headers: headers,
+    body: body_full,
+    failOnStatusCode: false,
+  }).then((response) => {
+    expect(response.status).equal(400);
+  });
+});
+// Cypress.Commands.add("validateTokenCode", (body_full, headers) => {
+//   cy.request({
+//     method: "POST",
+//     url: "/",
+//     headers: headers,
+//     body: body_full,
+//     failOnStatusCode: false,
+//   }).then((response) => {
+//     expect(response.status).equal(401);
+//     expect(response.body.error.field_errors[0].message).to.equal(error);
+//   });
+// });
