@@ -45,7 +45,7 @@ npm install --sav-dev cypress`
 
 # Bugs
 
-## In the test 4.2 Valid phone - Canada - 10 digits => I opened a bug
+## In the test 4.2 Valid phone - Canada - 10 digits.
 
 - 1. 16 digits Canadian phone is not accepted
 - 2. Incorrect error message for phone number length
